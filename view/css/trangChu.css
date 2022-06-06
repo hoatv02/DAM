@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,500&display=swap');
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+#web {
+    width: 100%;
+    height: 100vh;
+}
+
+
+header .top-header {
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    background:#0b111f;
+    align-items: center;
+    padding:0px 20px;
+}
+
+.mota{
+    margin-left: 20px;
+    text-align: left;
+}
+header .top-header .logo ion-icon {
+    width: 50px;
+    height: 50px;
+    color:#fff;
+    transition:0.5s all;
+}
+header .top-header .logo ion-icon:hover {
+    transform:rotate(39deg);
+}
+header .top-header #menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+header .top-header #menu .item a {
+    margin:0px 30px;
+    text-decoration: none;
+    color:#fff;
+    transition:color 0.4s;
+}
+
+header .top-header #menu .item a:hover {
+    color:rgb(0, 183, 255);
+}
+
+header a{
+    color: white;
+}
+header a:hover{
+    color: white;
+
+}
+
+/* options */
+.options {
+    display: flex;
+    width: 300px;
+    color:#fff;
+}
+.options div {
+    margin:0px 20px;
+    width: 120px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:2px solid #fff;
+}
+.options button{
+    background-color: #0B111F;
+    border: none;
+    color: #fff;
+}
+
+
+
+/* done */
+header .banner {
+    width: 1480;
+    height: 300px;
+    background-color:#0b111f;
+    background-size:cover;
+    background-position: center;
+}
+header .banner .intro {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+
+}
+header .banner .intro {
+    padding:0px 50px;
+}
+header .banner .intro h1 {
+    text-transform:uppercase;
+    color:#fff;
+    padding-top:30px;
+    text-align: center;
+}
+header .banner .intro h1 {
+    margin-bottom:10px;
+}
+header .banner .intro p {
+    color:#fff;
+}
+
+header .banner .options {
+    margin:0px auto;
+}
+header .banner .options .item {
+    width: 170px;
+    height: 40px;
+    margin:0px 10px;
+    margin-top:20px;
+    background:transparent;
+    border:2px solid #fff;
+    color:#fff;
+    position:relative;
+    overflow: hidden;
+}
+header .banner .options .item:before {
+    position:absolute;
+    content :"";
+    width: 150px;
+    height: 20px;
+    background:#fff;
+    transform:rotate(30deg);
+    left:-140px;
+    transition:all 1s;
+}
+
+header .banner .options .item:hover:before{
+    left:140px;
+}
+
+/* Content */
+
+content .list-group{
+    width: 270px;
+    float: right;
+}
+content .container {
+    width: 100%;
+    margin-top:50px;
+    padding: 20px;
+    text-align: center;
+}
+content .container .title {
+    text-transform:uppercase;
+    margin-bottom:30px;
+    padding:50px;
+    color: #fff !important;
+    padding-top: 30px !important;
+}
+content .container #list-common {
+    width: 1300px;
+    margin:0px auto;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+content .container #list-common .item {
+    width: 350px;
+    height: 550px;
+    background:rgb(217, 220, 226);
+    position:relative;
+}
+
+content .container #list-common .item .circle {
+    width:200px;
+    height:200px;
+    border-radius: 50%;
+    margin:0px auto;
+    margin-top:30px;
+    overflow: hidden;
+    animation :animate 20s infinite linear;
+}
+@keyframes animate {
+    0%{
+        transform:rotate(0deg);
+    }
+    50%{
+        transform:rotate(360deg);
+    }
+    100%{
+        transform:rotate(0deg);
+    }
+    
+}
+content .container{
+    background: #0b111f;
+    margin-bottom: 30px;
+}
+content .container #list-common{
+    margin-top: -70px;
+}
+content .container #list-common .item {
+    overflow: hidden;
+}
+content .container #list-common .item .circle img {
+    max-width: 150%;
+    text-align: center;
+    transition:all 0.5s;
+}
+content .container #list-common .item .circle:hover img {
+    transform:scale(1.5);
+    
+}
+
+content .container #list-common .item .name {
+    width: 200px;
+    height: 40px;
+    padding:6px 10px;
+    background:green;
+    margin:0px auto;
+    line-height: 40px;
+    color:rgb(0, 0, 0);
+    background:transparent;
+    border:2px solid rgb(0, 0, 0);
+    position:relative;
+    text-decoration: none;
+}
+content .container #list-common .item .name:before {
+    content :"";
+    position:absolute;
+    border-top:4px solid rgb(1, 35, 254);
+    border-left:4px solid rgb(1, 35, 254);
+    width: 10px;
+    height: 10px;
+    left:-3px;
+    top:-3px;
+    transition:all 0.4s;
+}
+
+content .container #list-common .item .name:hover:before {
+    width: 100%;
+    height: 100%;
+}
+content .container #list-common .item .name:after {
+    content :"";
+    position:absolute;
+    border-right:4px solid rgb(1, 35, 254);
+    border-bottom:4px solid rgb(1, 35, 254);
+    width: 10px;
+    height: 10px;
+    right:-3px;
+    bottom:-3px;
+    transition:all 0.4s;
+}
+content  #list-common .item .name:hover:after {
+    width: 100%;
+    height: 100%;
+}
+content  #list-common .item .intro {
+    padding:10px;
+    color:rgb(0, 0, 0);
+}
+content  #list-common .item .intro {
+    padding:10px 20px;
+}
+
+content .container #list-common .item .order {
+    width: 100px;
+    height: 40px;
+    background:transparent;
+    border:1px solid rgb(2, 2, 2);
+    margin-top:20px;
+    color:rgb(0, 0, 0);
+    transition:all 0.5s;
+    position: absolute;
+    bottom:-100px;
+    transform:translate(-50%,-50%);
+}
+content .container #list-common .item .order:hover {
+    background:rgb(1, 35, 254);
+    
+}
+content .container #list-common .item:hover .order {
+    bottom:0px;
+}
+
+
+
+
+/* done */
+/* content .container:nth-child(1)
+{   
+    width: 100% ;
+    padding: 20px !;
+} */
+content .container #list-products {
+    display: flex;
+    justify-content: center;
+    margin:0px auto;
+    list-style: none;
+    flex-wrap:wrap;
+   
+}
+content .container #list-products .product {
+    width: 300px;
+    height: 600px;
+    border:1px solid #fff;
+    margin:0px 20px;
+    background:rgb(217, 220, 226);
+    color:black;
+    margin-top:30px;
+   
+}
+content .container #list-products .product a{
+    text-decoration: none;
+    color: #0b111f;
+}
+
+content .container #list-products .product .product_img {
+    width: 250px;
+    height: 150px;
+    overflow: hidden;
+    margin:0px auto;
+    margin-top:20px;
+}
+content .container #list-products .product .product_img img {
+    max-width: 100%;
+}
+content .container #list-products .product .size {
+    display: flex;
+    width: 100%;
+    margin-top:20px;
+  
+}
+content .container #list-products .product .size .item {
+    width: 40px;
+    height: 40px;
+    background:rgb(5, 193, 240);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left:16px;
+    color:#fff;
+}
+.names{
+    margin-top: 10px;
+    font-size:20px;
+}
+.price{
+    font-size:30px;
+}
+content .container #list-products .product .price {
+    text-align: left;
+    margin-left:16px;
+    margin-top:5px;
+}
+content .container #list-products .product .quantity {
+
+    width: 90%;
+    outline:none;
+    border:none;
+    padding:5px;
+}
+content .container #list-products .product .order {
+    width: 100px;
+    height: 40px;
+    background:rgb(255, 254, 254);
+    margin:0px auto;
+    margin-top:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:all 0.4s;
+    text-decoration: none;
+}
+a{
+    text-decoration: none !important;
+    padding: 5px;
+}
+content .container #list-products .product .order:hover {
+    background:yellow;
+  
+}
+/* done */
+
+footer {
+    width: 100%;
+    background:#0B111F;
+}
+footer .container {
+    width: 90%;
+    margin:0px auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer .container .footer {
+    color:#fff;
+    padding-top:40px;
+    width: 500px;
+    height: 100%;
+
+
+}
+footer .container .footer h2 {
+    text-align: center;
+}
+footer .container .footer ul
+{
+    list-style: none;
+    padding:0px 20px;
+    margin-top:10px;
+    
+}
+footer .container .footer ul li {
+    margin:20px 0px;
+}
+footer .container .footer .contact {
+    width: 200px;
+    height: 40px;
+    background:#263861;
+    color:#fff;
+}
+footer .container .footer:nth-child(2) ul li  {
+     display: flex;
+    align-items: center;
+} 
+
+footer .container .footer:nth-child(2) ul li .icon {
+    width: 40px;
+    height: 40px;
+    background:rgb(0, 0, 0);
+    margin-right:20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer .container .footer:nth-child(2) ul li .icon ion-icon {
+    font-size:20px;
+}
+footer .container .footer:nth-child(3) ul li form {
+    position:relative;
+}
+footer .container .footer:nth-child(3) ul li form input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    border: 2px solid #fff;
+    color:#fff;
+}
+footer .container .footer:nth-child(3) ul li form button {
+    width: 200px;
+    height: 40px;
+    background:#fff;
+    outline:none;
+    margin-top:40px;
+    
+}
+content .container #list-products .product .size .item.active {
+    background:red !important;
+}
+.thongbao{
+    color: red;
+}

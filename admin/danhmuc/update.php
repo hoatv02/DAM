@@ -1,3 +1,9 @@
+<?php
+if (is_array($dm)) {
+    extract($dm);
+}
+?>
+
 <head>
     <style>
         h1 {
@@ -31,7 +37,7 @@
         }
 
         .ibsubmit input {
-            height: 40px;
+            height: 24px;
             margin-left: 10px;
             width: 200px;
             background-color: #fff;
@@ -47,21 +53,22 @@
 </head>
 <div class="rows">
     <div class="row title">
-        <h1> Thêm mới lại danh mục</h1>
+        <h1> Cập nhật lại hàng hóa</h1>
     </div>
     <div class="row content">
-        <form action="index.php?act=adddm" method="post" enctype="multipart/form">
+        <form action="index.php?act=updatedm" method="post" enctype="multipart/form">
             <div class="row mb10 mb10s">
                 <h5>Mã loại</h5>
                 <input type="text" name="maLoai" id="" disabled>
             </div>
             <div class="row mb10 mb10s input2">
                 <h5>Tên loại</h5>
-                <input type="text" name="tenLoai" id="">
+                <input type="text" name="tenLoai" id="" value="<?php if (isset($name) && ($name != "")) echo $name ?>">
             </div>
             <div class="row mb10 ibsubmit">
-                <input type="submit" value="Thêm mới" name="themmoi">
-                <input type="reset" value="Nhập lại">
+                <input type="hidden" name="id" value="<?php if (isset($id) && ($id > 0)) echo $id ?>">
+                <input type="submit" value="Cập Nhật" name="capnhat">
+                <input type="reset" value="Nhập Lại">
                 <a href="index.php?act=listdm"><input type="button" value="Danh Sách"></a>
             </div>
             <?php

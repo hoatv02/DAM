@@ -1,58 +1,9 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/index.css">
-    <style>
-        ul li{
-            display: inline-flex;
-        }
-        
-        .headeradmin h1{
-            text-align: center;
-            font-size: 50px;
-            background-color: antiquewhite;
-            padding: 20px;
-            margin: 0;
-        }
-        .menu ul li{
-            margin-left: 30px;
-        }
-        .contents{
-            margin-left: 500px;
-            background:linear-gradient(to top , blue,red);
-            width: 300px;
-            text-align: center;
-            border-radius: 10px;
-        }
-        .mb10{
-            margin-bottom: 20px;
-        }
-        .btn_input{
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div class="boxcenter bile">
-        <div class="row mb headeradmin"> 
-            <h1>Admin</h1>
-        </div>
-        <div class="row mb menu">
-            <ul>
-                <li><a href="index.php">Trang Chủ</a></li>
-                <li><a href="index.php?act=adddm">Danh Mục</a></li>
-                <li><a href="index.php?act=addsp">Sản phẩm</a></li>
-                <li><a href="index.php?act=addkh">Khách Hàng</a></li>
-                <li><a href="index.php?act=dsbl">Bình Luận</a></li>
-                <li><a href="index.php?act=dstk">Thống Kê</a></li>
-            </ul>
-        </div> -->
+<!-- <?php
+require '../model/danhmuc.php';
+require '../model/sanpham.php';
+require '../model/pdo.php';
 
-        
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -141,7 +92,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <div class="vertical-nav bg-white" id="sidebar">
     <div class="py-4 px-3 mb-4 bg-light">
-      <div class="media d-flex align-items-center"><img src="https://s1.media.ngoisao.vn/resize_580/news/2021/05/13/kim-ngan-ngoisaovn-w620-h775.jpg" alt="" width="65"
+      <div class="media d-flex align-items-center"><img src="" alt="" width="65"
           class="mr-3 rounded-circle img-thumbnail shadow-sm">
         <div class="media-body">
           <h4 class="m-0">Admin</h4>
@@ -190,3 +141,9 @@
       </li>
     </ul>
   </div>
+  <div class="page-content p-5" id="content">
+        
+  </div>
+</body>
+
+</html> -->
