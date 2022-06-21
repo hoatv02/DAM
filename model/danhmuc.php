@@ -21,3 +21,8 @@ function update_danhmuc($id,$tenLoai){
     $sql = "UPDATE danhmuc SET name='" . $tenLoai . "' WHERE id='" . $id . "'";
     pdo_execute($sql);
 }
+// function delete_all(){
+//     if(){
+
+//     }
+// }

@@ -68,6 +68,8 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
   <style>
     .vertical-nav {
       min-width: 17rem;
@@ -153,7 +155,7 @@
 
     <ul class="nav flex-column bg-white mb-0">
       <li class="nav-item">
-        <a href="index.php" class="nav-link text-dark font-italic bg-light">
+        <a href="../index.php" class="nav-link text-dark font-italic bg-light">
         <i class="fab fa-windows"></i>
           Trang chủ
         </a>
@@ -171,19 +173,19 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="index.php?act=addkh" class="nav-link text-dark font-italic bg-light">
+        <a href="index.php?act=dskh" class="nav-link text-dark font-italic bg-light">
         <i class="fal fa-users"></i>
           Quản lý khách hàng
         </a>
       </li>
       <li class="nav-item">
-        <a href="index.php?act=addkh" class="nav-link text-dark font-italic bg-light">
+        <a href="index.php?act=dsbl" class="nav-link text-dark font-italic bg-light">
         <i class="fal fa-comment-alt"></i>
           Quản lý bình luận
         </a>
       </li>
       <li class="nav-item">
-        <a href="index.php?act=addkh" class="nav-link text-dark font-italic bg-light">
+        <a href="index.php?act=thongke" class="nav-link text-dark font-italic bg-light">
         <i class="fal fa-th-list"></i>
           Quản lý thống kê
         </a>

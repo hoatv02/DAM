@@ -72,8 +72,8 @@ if (is_array($dm)) {
                 <a href="index.php?act=listdm"><input type="button" value="Danh Sách"></a>
             </div>
             <?php
-            if (isset($thongBao) && $thongBao != "") {
-                echo $thongBao;
+            if (isset($thongbao) && $thongbao != "") {
+                echo $thongbao;
             }
             ?>
         </form>

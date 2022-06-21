@@ -4,16 +4,12 @@
             text-transform: uppercase;
         }
         .rows{
-            margin-left: 500px;
-            margin-top: 50px;
-        }
-        table{
+            padding: 50px 300px;
             text-align: center;
-            width: 600px;
         }
+       
         table th{
             padding: 10px;
-            background-color: #5d8aa8;
         }
         .checkbox{
             width: 30px;
@@ -48,28 +44,31 @@
         } td{
             padding: 5px 0;
         }
+        .mloai{
+            width: 100px;
+        }
     </style>
 </head>
 <div class="rows">
-    <div class="row frmtitle">
+    <div class="alert alert-success">
         <h1>Danh Sách Loại Hàng</h1>
     </div>
-    <div class="row frmcontent">
-        <div class="row mb10 frmdsloai">
-            <table border="1">
-                <tr>
-                    <th class="checkbox"></th>
-                    <th>Mã Loại</th>
+    <div class="">
+        <div class="">
+            <table border="1" class="table">
+               <thead class="alert-success">
+               <tr>
+                    <th class="mloai">Mã Loại</th>
                     <th>Tên Loại</th>
                     <th></th>
                 </tr>
+               </thead>
                 <?php
                 foreach ($listdanhmuc as $danhmuc) {
                     extract($danhmuc);
                     $suaDm = "index.php?act=suaDm&id=".$id;
                     $xoaDm = "index.php?act=xoaDm&id=".$id;
                     echo '  <tr>
-                        <td><input type="checkbox" name="" id="" class="checkbox"></td>
                         <td>' . $id . '</td>
                         <td class="nameList">' . $name . '</td>
                         <td><a href="'.$suaDm.'"><i class="fal fa-edit"></i></a>    <a href="'.$xoaDm.'"><i class="fal fa-trash-alt"></i></a></td>
@@ -83,9 +82,6 @@
         </div>
     </div>
     <div class="row mb10 insubmit">
-        <input type="button" value="Chọn Tất Cả">
-        <input type="button" value="Bỏ Chọn Tất Cả">
-        <input type="button" value="Xóa Các Mục Đã Chọn">
         <a href="index.php?act=adddm"><input type="button" value="Nhập Thêm"></a>
     </div>
 </div>

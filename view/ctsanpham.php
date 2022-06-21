@@ -1,6 +1,10 @@
+<?php
+require 'global.php';
+?>
+
 <head>
     <style>
-        h1 {
+        .a h1 {
             margin-left: 50px;
         }
 
@@ -53,28 +57,38 @@
             box-shadow: 8px 8px 8px;
             border-radius: 10px;
         }
+
         .sp_cungloai {
             list-style: none;
+            display: inline-flex;
+            flex-wrap: wrap;
             margin: 20px 50px;
+            border: 1px solid #000;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 8px 8px 8px;
+
+        }
+
+        .sp_cungloai:hover {
+            background-color: red;
         }
 
         .sp_cungloai a {
             color: black;
             font-weight: 550;
         }
+
+        .showimg {
+            border-radius: 5px;
+        }
+
+        .viewcart {
+            display: none;
+        }
     </style>
 </head>
 <div class="contents">
-<div class="list-group">
-        <h1 class="title">DANH MỤC</h1>
-        <?php
-        foreach ($dsdm as $dm) {
-            extract($dm);
-            $linkdm = "index.php?act=sanpham&iddm=" . $id;
-            echo '<a href="' . $linkdm . '" class="list-group-item list-group-item-action">' . $name . '</a>';
-        }
-        ?>
-    </div>
     <div class="list-detail">
         <?php extract($onesp); ?>
         <h1><?= $name ?></h1>
@@ -83,23 +97,49 @@
             $img = $imgpath . $img;
             echo '
              <div class="detail-product-img">
-                <img src="' . $img . '" width="500px" height="500px" style="margin:50px;" class="detail-product-img-img" href=""alt="...">
+                <img src="' . $img . '" width="600px" height="600px" style="margin:50px;" class="detail-product-img-img" href=""alt="...">
             </div>
             <div class="detail-product-content">
                     <h2>Tên : ' . $name . '</h2>
                     <p class="prices">Giá : ' . $price . ' VND</p>
                     <p>Mô Tả : ' . $mota . '</p>
                     <p class="prices">Trạng Thái : Còn Hàng</p>
-            <input type="number" name="number-product" id="quantity" min="0" max="10" placeholder="Số lượng"> <br> <br>
-            <input type="submit" class="btn-submit" value="Đặt Hàng">
-            </div>
-            ';
-
+                    <br> <br>
+            <form action="index.php?act=addtocart" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="id" value="' . $id . '">
+                            <input type="hidden" name="name" value="' . $name . '">
+                            <input type="hidden" name="img" value="' . $img . '">
+                            <input type="hidden" name="price" value="' . $price . '">';
+            ?>    
+            <?php
+             if (isset($_SESSION['user'])) {
+                extract($_SESSION['user']);
+                        echo '<input class="order btn-submit" type="submit" name="addtocart" value="Đặt hàng">';
+             } else{
+                echo '<input class="order btn-submit" type="button" name="" value="Đặt hàng"><br>'; 
+                echo "<br><h3>Bạn phải đăng nhập để thực hiện chức năng này !!!</h3> ";
+                
+             }  
+             echo ' </form>';
             ?>
+            <!-- <?php
+            if (isset($_SESSION['user'])) {
+                extract($_SESSION['user']);
+                echo '<form action="index.php?act=addtocart" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="' . $id . '">
+                <input type="hidden" name="name" value="' . $name . '">
+                <input type="hidden" name="img" value="' . $img . '">
+                <input type="hidden" name="price" value="' . $price . '">
+                <input class="order btn-submit" type="submit" name="addtocart" value="Đặt hàng">
+                </form>';
+            } else {
+                echo "<br><h3>Bạn phải đăng nhập để thực hiện chức năng này !!!</h3> ";
+            }
+            ?> -->
         </div>
-
+        <h1 class="a">SẢN PHẨM CÙNG LOẠI</h1>
+        <br>
         <div class="detail-same-kind">
-            <h1>SẢN PHẨM CÙNG LOẠI</h1>
             <?php
             foreach ($sp_cungloai as $sp_cungloai) {
                 extract($sp_cungloai);
@@ -107,16 +147,26 @@
                 $linksp = "index.php?act=ctsanpham&idsp=" . $id;
                 echo '
                        <li class="sp_cungloai">
-                            <img src="' . $img . '" width="80px" alt="">
+                       <a href="' . $linksp . '"> <img src="' . $img . '" width="80px" height="80px" alt="" class="showimg" > </a><br>
                             <a href="' . $linksp . '">' . $name . '</a>
                         </li>
                     ';
             }
             ?>
         </div>
-        <div class="detail-comment">
-            <h1>BÌNH LUẬN</h1>
-        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#binhluan").load("view/binhluan/binhluanform.php", {
+                    idpro: <?= $id ?>
+                });
+            });
+        </script>
+
+
     </div>
- 
+    <div id="binhluan">
+        <h1 class="title">BÌNH LUẬN</h1>
+
+    </div>
 </div>

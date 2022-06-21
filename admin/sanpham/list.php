@@ -1,31 +1,13 @@
 <head>
     <style>
-         h1{
-            text-transform: uppercase;
-        }
-        .rows{
-            margin-left: 500px;
-            margin-top: 50px;
-        }
-        table{
-            margin-top: 20px;
-            text-align: center;
-            width: 600px;
-        }
-        table th{
-            padding: 10px;
-            background-color: #5d8aa8;
-        }
-        .checkbox{
-            padding: 20px;
-            width: 50px;
-
-        }
+         
         .nameList{
             text-align: left;
         }
+        .rows{
+            padding: 50px 300px;
+        }
         .insubmit input{
-            margin-top: 30px;
             margin-left: 10px;
             padding: 4px 12px;
             border: none;
@@ -56,20 +38,18 @@
         }
         .updatedelete{
             padding: 10px;
+            width: 120px;
         }
-        /* .frmdsloai{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-
-        } */
+        
+        
     </style>
 </head>
 <div class="rows">
-    <div class="row frmtitle">
-        <h1>Danh Sách Loại Hàng</h1>
+    <div class=" alert alert-success">
+        <h3>Danh Sách Loại Hàng</h3>
     </div>
-    <div class="row frmcontent">
-        <div class="row mb10 frmdsloai">
+    <div class=" ">
+        <div class="">
             <form action="index.php?act=listsp" method="post" enctype="multipart/form-data" class="form insubmit">
                 <input type="text" name="tk" placeholder="Tìm kiếm sản phẩm">
                 <select name="iddm" id="">
@@ -83,9 +63,10 @@
                 </select>
                 <input type="submit" name="listok" value="Search">
             </form>
-            <table border="1">
+            <table border="1" class="table">
+                <br>
+                <thead class="alert-success">
                 <tr>
-                    <th></th>
                     <th>Mã Loại</th>
                     <th>Tên sản phẩm</th>
                     <th>Giá sản phẩm</th>
@@ -93,6 +74,7 @@
                     <th>Mô tả</th>
                     <th></th>
                 </tr>
+                </thead>
                 <?php
                 foreach ($listsanpham as $sanpham) {
                     extract($sanpham);
@@ -105,13 +87,12 @@
                         $hinhAnh = "No photto";
                     }
                     echo '  <tr>
-                        <td><input type="checkbox" name="" id=""></td>
                         <td>' . $id . '</td>
                         <td>' . $name . '</td>
                         <td>' . $price . '</td>
                         <td>' . $hinhAnh . '</td>
                         <td>' . $mota . '</td>
-s                        <td class="updatedelete"><a href="' . $suaSP . '"><i class="fal fa-edit"></i></a>    <a href="' . $xoaSP . '"><i class="fal fa-trash-alt"></i></a></td>
+                                              <td class="updatedelete"><a href="' . $suaSP . '"><i class="fal fa-edit"></i></a>    <a href="' . $xoaSP . '"><i class="fal fa-trash-alt"></i></a></td>
                     </tr>';
                 }
 
@@ -122,9 +103,6 @@ s                        <td class="updatedelete"><a href="' . $suaSP . '"><i cl
         </div>
     </div>
     <div class="row mb10 insubmit">
-        <input type="button" value="Chọn Tất Cả">
-        <input type="button" value="Bỏ Chọn Tất Cả">
-        <input type="button" value="Xóa Các Mục Đã Chọn">
         <a href="index.php?act=addsp"><input type="button" value="Nhập Thêm"></a>
     </div>
 </div>

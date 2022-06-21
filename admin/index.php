@@ -1,6 +1,9 @@
 <?php
 require '../model/danhmuc.php';
 require '../model/sanpham.php';
+require '../model/taikhoan.php';
+require '../model/binhluan.php';
+require '../model/cart.php';
 require '../model/pdo.php';
 require 'header.php';
 
@@ -13,7 +16,7 @@ if (isset($_GET['act'])) {
             if (isset($_POST['themmoi']) && $_POST['themmoi']) {
                 $tenLoai = $_POST['tenLoai'];
                 insert_danhmuc($tenLoai);
-                $thongBao = "Thêm Thành Công !!!";
+                $thongbao = "Thêm Thành Công !!!";
             }
             require 'danhmuc/add.php';
             break;
@@ -43,7 +46,7 @@ if (isset($_GET['act'])) {
                 $tenLoai = $_POST['tenLoai'];
                 $id = $_POST['id'];
                 update_danhmuc($id, $tenLoai);
-                $thongBao = "Cập Nhật Thành Công !!!";
+                $thongbao = "Cập Nhật Thành Công !!!";
             }
             $listdanhmuc = loadAll_danhmuc();
             require 'danhmuc/list.php';
@@ -62,7 +65,7 @@ if (isset($_GET['act'])) {
                 $target_file = $target_dir . basename($_FILES['hinhAnh']['name']);
                 move_uploaded_file($_FILES['hinhAnh']['tmp_name'], $target_file);
                 insert_sanpham($tensp, $giasp, $hinhAnh, $mota, $iddm);
-                $thongBao = "Thêm Thành Công !!!";
+                $thongbao = "Thêm Thành Công !!!";
             }
             $listdanhmuc = loadAll_danhmuc();
             require 'sanpham/add.php';
@@ -71,12 +74,12 @@ if (isset($_GET['act'])) {
             if (isset($_POST['listok']) && $_POST['listok']) {
                 $tk = $_POST['tk'];
                 $iddm = $_POST['iddm'];
-            }else{
-                $tk ='';
-                $iddm=0;
+            } else {
+                $tk = '';
+                $iddm = 0;
             }
             $listdanhmuc = loadAll_danhmuc();
-            $listsanpham = loadAll_sanpham($tk,$iddm);
+            $listsanpham = loadAll_sanpham($tk, $iddm);
             require 'sanpham/list.php';
             break;
 
@@ -100,7 +103,7 @@ if (isset($_GET['act'])) {
         case 'updateSp':
             if (isset($_POST['capnhats']) && ($_POST['capnhats'])) {
                 $iddm = $_POST['iddm'];
-                $id= $_POST['id'];
+                $id = $_POST['id'];
                 $tensp = $_POST['tensp'];
                 $giasp = $_POST['giasp'];
                 $mota = $_POST['mota'];
@@ -108,16 +111,52 @@ if (isset($_GET['act'])) {
                 // $target_dir = "../upload/";
                 // $target_file = $target_dir . basename($_FILES['hinhAnh']['name']);
                 // move_uploaded_file($_FILES['hinhAnh']['tmp_name'], $target_file);
-                update_sanpham($id, $tensp,$giasp/*,$hinhAnh*/,$mota,$iddm);
-                $thongBao = "Cập Nhật Thành Công !!!";
+                update_sanpham($id, $tensp, $giasp/*,$hinhAnh*/, $mota, $iddm);
+                $thongbao = "Cập Nhật Thành Công!!!";
             }
             $listdanhmuc = loadAll_danhmuc();
-            $listsanpham = loadAll_sanpham("",0);
+            $listsanpham = loadAll_sanpham("", 0);
             require 'sanpham/list.php';
+            break;
+        // ===============KHÁCH HÀNG =========================
+        case 'xoatk':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_taikhoan($_GET['id']);
+            }
+            $sql = "SELECT * FROM taikhoan ORDER BY id DESC";
+            $listtaikhoan = pdo_query($sql);
+            require 'taikhoan/list.php';
+            break;
+        case 'dskh':
+            $listtaikhoan = loadAll_taikhoan();
+            require 'taikhoan/list.php';
+            break;
+        // ===============KHÁCH HÀNG =========================
+        case 'xoabl':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_binhluan($_GET['id']);
+            }
+            $sql = "SELECT * FROM binhluan ORDER BY id DESC";
+            $listbinhluan = pdo_query($sql);
+            require 'binhluan/list.php';
+            break;
+        case 'dsbl':
+            $listbinhluan = loadAll_binhluan(0);
+            require 'binhluan/list.php';
+            break;
+        // ===============THỐNG KÊ =============
+        case 'thongke':
+            $listthongke = loadall_thongke();
+            require 'thongke/list.php';
+            break;
+        case 'bieudo':
+            $listthongke = loadall_thongke();
+            require 'thongke/bieudo.php';
             break;
         default:
             require 'content.php';
             break;
+        
     }
 } else {
     require 'content.php';

@@ -29,7 +29,9 @@ if (is_file($hinhpath)) {
         }
 
 
-        .input2 input,.input2 select,.input2 textarea {
+        .input2 input,
+        .input2 select,
+        .input2 textarea {
             margin-left: 16px;
             width: 300px;
         }
@@ -55,7 +57,7 @@ if (is_file($hinhpath)) {
     </div>
     <div class="row content">
         <form action="index.php?act=updateSp" method="post" enctype="multipart/form">
-        Danh mục <br>
+            Danh mục <br>
             <div class="row mb10 input2">
                 <select name="iddm" id="">
                     <option value="0" selected>Tất cả</option>
@@ -81,13 +83,12 @@ if (is_file($hinhpath)) {
             </div>
             Hình Ảnh <br>
             <div class="row mb10 input2">
-
                 <input type="file" name="hinhAnh" id="">
                 <?= $hinhAnh ?>
             </div>
             Mô tả <br>
             <div class="row mb10 input2">
-                <textarea type="text" name="mota" id="" value="<?= $mota ?>"></textarea>
+                <input type="text" name="mota" id="" value="<?= $mota ?>"></input>
             </div>
             <div class="row mb10 ibsubmit">
                 <input type="hidden" name="id" value="<?= $id ?>">
@@ -96,8 +97,8 @@ if (is_file($hinhpath)) {
                 <a href="index.php?act=listsp"><input type="button" value="Danh Sách"></a>
             </div>
             <?php
-            if (isset($thongBao) && $thongBao != "") {
-                echo $thongBao;
+            if (isset($thongbao) && $thongbao != "") {
+                echo $thongbao;
             }
             ?>
         </form>
